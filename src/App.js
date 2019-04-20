@@ -1,28 +1,42 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "semantic-ui-css/semantic.min.css";
+import "semantic-ui-css/themes/default/assets/fonts/icons.ttf";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
 
-export default App;
+import Default from "./themes/default/main";
+import Loading from "./components/loader.component";
+
+import { getData } from "./firebase";
+const themes = {
+  default: Default
+};
+
+const Resume = ({ theme, jsonResume, inline }) => {
+  const [resume, setResume] = useState(null);
+
+  useEffect(() => {
+    if (!resume) {
+      getData("resume").then(savedResume => setResume(savedResume));
+    }
+  });
+
+  const ThemedResume = themes[theme];
+  return resume ? (
+    <ThemedResume inline={inline} jsonResume={resume} />
+  ) : (
+    <Loading />
+  );
+};
+
+Resume.defaultProps = {
+  theme: "default",
+  inline: false
+};
+
+Resume.propTypes = {
+  theme: PropTypes.string,
+  inline: PropTypes.bool
+};
+
+export default Resume;
