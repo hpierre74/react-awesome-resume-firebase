@@ -14,6 +14,7 @@ storage.rules*
 
 # personal
 resume.json*
+/public/pierre-huyghe.JPG
 
 # testing
 /coverage
