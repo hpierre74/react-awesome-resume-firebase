@@ -1,4 +1,4 @@
-import { Grid, Icon } from "semantic-ui-react";
+import { Grid, Icon, Header } from "semantic-ui-react";
 import React from "react";
 import shortid from "shortid";
 
@@ -9,6 +9,9 @@ import { educationType } from "../../resume.types";
 const Education = ({ education }) => {
   return (
     <div style={{ textAlign: "left", width: "100%" }}>
+      <Header style={{ marginLeft: "20px", color: colors.teal }} as="h1">
+        Education
+      </Header>
       {education.map(j => (
         <CardHighlights
           key={shortid.generate()}
@@ -24,7 +27,7 @@ const Education = ({ education }) => {
               <Grid columns="3">
                 <Grid.Column textAlign="left">
                   <Icon name="certificate" />
-                  {`${j.studyType}: `}
+                  {`${j.studyType}`}
                 </Grid.Column>
                 <Grid.Column textAlign="center">
                   <Icon name="calendar" />

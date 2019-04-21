@@ -22,6 +22,8 @@ const Work = ({ work }) => {
               <Icon name="building outline" margin="10" />
               {job.website ? (
                 <ExtLink
+                  ariaLabel="Visit the company website"
+                  name={job.company}
                   href={job.website}
                   text={job.company}
                   color={colors.green}

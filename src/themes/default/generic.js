@@ -90,6 +90,8 @@ export const Contact = ({ phone, email, website }) => {
       )}
       {email && (
         <ExtLink
+          ariaLabel="send a mail to this person"
+          name="email"
           style={{ margin: "10px" }}
           href={`mailto:${email}`}
           text={
@@ -105,6 +107,8 @@ export const Contact = ({ phone, email, website }) => {
       )}
       {website && (
         <ExtLink
+          ariaLabel="visit the website of this person"
+          name="phone"
           style={{ margin: "10px" }}
           href={website}
           text={
@@ -136,6 +140,8 @@ Contact.propTypes = {
 
 export class ExtLink extends React.Component {
   static propTypes = {
+    name: PropTypes.string.isRequired,
+    ariaLabel: PropTypes.string.isRequired,
     href: PropTypes.string.isRequired,
     text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
     color: PropTypes.string.isRequired
@@ -159,6 +165,8 @@ export class ExtLink extends React.Component {
 
     return (
       <a
+        name={this.props.name}
+        aria-label={this.props.ariaLabel}
         href={this.props.href}
         style={linkStyle}
         onMouseEnter={this.toggleHover}

@@ -1,4 +1,4 @@
-import { Icon } from "semantic-ui-react";
+import { Icon, Header } from "semantic-ui-react";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import shortid from "shortid";
@@ -10,6 +10,9 @@ import { volunteerType } from "../../resume.types";
 const Volunteer = ({ volunteer }) => {
   return (
     <div>
+      <Header style={{ marginLeft: "20px", color: colors.purple }} as="h1">
+        Volunteer
+      </Header>
       {volunteer.map(j => (
         <CardHighlights
           key={shortid.generate()}

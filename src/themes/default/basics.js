@@ -49,6 +49,7 @@ const Basics = ({
             centered
             fluid
             style={{ border: "10px solid rgba(0,0,0,.05)" }}
+            alt='profile picture'
           />
           <Location location={location} />
         </Grid.Column>

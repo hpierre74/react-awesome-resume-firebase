@@ -1,4 +1,4 @@
-import { Icon } from "semantic-ui-react";
+import { Icon, Header } from "semantic-ui-react";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import shortid from "shortid";
@@ -10,6 +10,9 @@ import { publicationsType } from "../../resume.types";
 const Publications = ({ publications }) => {
   return (
     <div>
+      <Header style={{ marginLeft: "20px", color: colors.orange }} as="h1">
+        Publications
+      </Header>
       {publications.map(j => (
         <CardHighlights
           color={colors.orange}
@@ -17,7 +20,13 @@ const Publications = ({ publications }) => {
           title={
             <span style={c(emTwo, bold, color(colors.orange))}>
               <Icon name="newspaper" />
-              <ExtLink href={j.website} text={j.name} color={colors.orange} />
+              <ExtLink
+                ariaLabel="Visit the website"
+                href={j.website}
+                text={j.name}
+                name={j.name}
+                color={colors.orange}
+              />
             </span>
           }
           subtitle={

@@ -1,4 +1,4 @@
-import { Card, Icon, Grid } from "semantic-ui-react";
+import { Card, Icon, Grid, Header } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import React from "react";
 import ReactMarkdown from "react-markdown";
@@ -11,6 +11,9 @@ import { interestsType } from "../../resume.types";
 const Interests = ({ interests }) => {
   return (
     <div style={{ textAlign: "left", width: "100%" }}>
+      <Header style={{ marginLeft: "20px", color: colors.green }} as="h1">
+        Interests
+      </Header>
       {interests.map(j => (
         <CardHighlights
           color={colors.green}
